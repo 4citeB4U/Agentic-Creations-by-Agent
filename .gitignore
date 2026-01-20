@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+libs/
+
+# Build outputs
+dist/
+build/
+
+# Temporary files
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride

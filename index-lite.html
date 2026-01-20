@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic 3D Creator - Blueprint to Mesh</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Agentic 3D Creator</h1>
+            <p class="subtitle">Blueprint → Particles → Mesh</p>
+        </header>
+
+        <div id="main-container">
+            <!-- Phase Indicator -->
+            <div id="phase-indicator">
+                <div class="phase-step active" data-phase="blueprint">
+                    <span class="phase-number">1</span>
+                    <span class="phase-name">Blueprint</span>
+                </div>
+                <div class="phase-step" data-phase="particles">
+                    <span class="phase-number">2</span>
+                    <span class="phase-name">Particles</span>
+                </div>
+                <div class="phase-step" data-phase="mesh">
+                    <span class="phase-number">3</span>
+                    <span class="phase-name">Mesh</span>
+                </div>
+            </div>
+
+            <!-- Canvas Area -->
+            <div id="canvas-container">
+                <!-- Blueprint Canvas (2D) -->
+                <div id="blueprint-stage" class="stage active">
+                    <canvas id="blueprint-canvas"></canvas>
+                    <div id="blueprint-controls">
+                        <h3>Agent Lee - Blueprint Designer</h3>
+                        <div class="control-group">
+                            <label>Shape:</label>
+                            <select id="shape-select">
+                                <option value="circle">Circle</option>
+                                <option value="square">Square</option>
+                                <option value="triangle">Triangle</option>
+                                <option value="star">Star</option>
+                                <option value="heart">Heart</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label>Size:</label>
+                            <input type="range" id="size-slider" min="50" max="300" value="150">
+                            <span id="size-value">150</span>
+                        </div>
+                        <div class="control-group">
+                            <button id="generate-blueprint" class="primary-btn">Generate Blueprint</button>
+                            <button id="clear-blueprint" class="secondary-btn">Clear</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Particle Assembly Stage (3D) -->
+                <div id="particle-stage" class="stage">
+                    <canvas id="particle-3d-canvas"></canvas>
+                    <div id="particle-controls">
+                        <h3>Particle Assembly</h3>
+                        <div class="control-group">
+                            <label>Mode:</label>
+                            <select id="particle-mode">
+                                <option value="relief">2.5D Relief (Fast)</option>
+                                <option value="volumetric">Volumetric (High Quality)</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label>Particle Count:</label>
+                            <input type="range" id="particle-count" min="500" max="5000" value="2000" step="100">
+                            <span id="particle-count-value">2000</span>
+                        </div>
+                        <div class="control-group">
+                            <button id="assemble-particles" class="primary-btn">Assemble Particles</button>
+                            <div id="assembly-progress" class="progress-bar" style="display:none;">
+                                <div class="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mesh Solidification Stage (3D) -->
+                <div id="mesh-stage" class="stage">
+                    <canvas id="mesh-3d-canvas"></canvas>
+                    <div id="mesh-controls">
+                        <h3>Mesh Solidification</h3>
+                        <div class="control-group">
+                            <label>Aura Effect:</label>
+                            <input type="checkbox" id="aura-effect" checked>
+                            <label for="aura-effect">Enable</label>
+                        </div>
+                        <div class="control-group">
+                            <label>Smoothness:</label>
+                            <input type="range" id="mesh-smoothness" min="0" max="10" value="5">
+                            <span id="smoothness-value">5</span>
+                        </div>
+                        <div class="control-group">
+                            <button id="solidify-mesh" class="primary-btn">Solidify Mesh</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation & Export -->
+            <div id="action-panel">
+                <div class="navigation-buttons">
+                    <button id="prev-phase" class="nav-btn" disabled>← Previous</button>
+                    <button id="next-phase" class="nav-btn">Next →</button>
+                </div>
+                
+                <div class="export-section">
+                    <h3>Export</h3>
+                    <button id="export-png" class="export-btn" disabled>
+                        <span>📷</span> Export PNG
+                    </button>
+                    <button id="export-glb" class="export-btn" disabled>
+                        <span>📦</span> Export GLB
+                    </button>
+                    <button id="save-project" class="export-btn">
+                        <span>💾</span> Save Project
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="status-message"></div>
+    </div>
+
+    <!-- Standalone version - no external dependencies -->
+    <script src="app-lite.js"></script>
+</body>
+</html>

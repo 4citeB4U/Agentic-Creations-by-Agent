@@ -123,13 +123,17 @@ header h1 {
 
 /* 3D Canvas containers */
 #particle-canvas,
-#mesh-canvas {
+#mesh-canvas,
+#particle-3d-canvas,
+#mesh-3d-canvas {
     width: 100%;
+    max-width: 800px;
     height: 500px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: block;
 }
 
 /* Controls */
